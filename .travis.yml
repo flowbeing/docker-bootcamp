@@ -1,0 +1,7 @@
+sudo: required
+
+before-install:
+docker build -f dockerfile.dev -t crypticycle/docker-default-react-app
+
+script:
+docker run -e CI=true crypticycle/docker-default-react-app npm run test
